@@ -1,0 +1,10 @@
+.form-title-ctn {
+    width: 100%;
+    height: fit-content;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.form-title-ctn p {
+    color: #aaa;
+}

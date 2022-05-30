@@ -1,0 +1,72 @@
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.input-label {
+  width: fit-content;
+  color: #666;
+  font-weight: 600;
+}
+
+.input {
+  height: 35px;
+  padding: 0 1rem;
+
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  position: relative;
+  z-index: 2;
+}
+
+.input-error {
+  border: 1px solid red !important;
+}
+
+.error {
+  color: red;
+  transform: translateY(-30px);
+  transition: ease 300ms;
+  height: 10px;
+  font-size: 14px;
+  margin-bottom: 0.5rem;
+
+  width: fit-content;
+}
+
+.input::placeholder {
+  color: #bbb;
+}
+
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-password-wrapper {
+  height: 40px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 0 1rem;
+  border-radius: 5px;
+}
+
+.input-password-wrapper input {
+  border: none !important;
+  background-color: transparent;
+  padding: 0;
+}
+
+.input-password-wrapper svg {
+  cursor: pointer;
+  transition: ease 300ms;
+  font-size: 20px;
+}
