@@ -8,6 +8,7 @@ const Button = (props) => {
     if (type === 'primary') {
       style['backgroundColor'] = 'var(--primary-color)';
       style['color'] = 'white';
+      style['boxShadow'] = 'rgb(0, 158, 255, 0.7) 0px 25px 20px -20px';
     } else style['backgroundColor'] = 'white';
     if (block) style['width'] = '100%';
     else style['width'] = 'fit-content';

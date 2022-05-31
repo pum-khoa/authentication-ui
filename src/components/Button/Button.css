@@ -7,7 +7,6 @@
   transition: ease 300ms;
   font-size: large;
   border: 1px solid #ccc;
-  box-shadow: rgb(0, 158, 255, 0.7) 0px 25px 20px -20px;
 }
 
 .Button:hover {
