@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import Button from '../../components/Button/Button';
 import Fieldset from '../../components/Fieldset/Fieldset';
 import { useGlobalData } from '../../components/GlobalDataProvider/GlobalDataProvider';
-import { message } from '../../utils/message';
 import './SignUp.css';
 
 const SignUp = () => {
