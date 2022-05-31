@@ -19,15 +19,15 @@ const Input = (props) => {
       {type === 'password' ? (
         <div className="input-password-wrapper">
           <input
-            type={type}
-            placeholder={isShowPassword ? 'text' : 'password'}
+            type={isShowPassword ? 'text' : 'password'}
+            placeholder={'******'}
             className={errorMess ? 'input input-error' : 'input'}
             {...register}
           />
           {isShowPassword ? (
-            <BsFillEyeSlashFill onClick={() => setIsShowPassword(true)} />
+            <BsFillEyeSlashFill onClick={() => setIsShowPassword(false)} />
           ) : (
-            <BsFillEyeFill onClick={() => console.log(false)} />
+            <BsFillEyeFill onClick={() => setIsShowPassword(true)} />
           )}
         </div>
       ) : (
