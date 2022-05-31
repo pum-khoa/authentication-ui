@@ -1,3 +1,78 @@
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+}
+
 .App {
   width: 100%;
+}
+
+.alert-ctn {
+  width: fit-content;
+  padding: 1rem;
+
+  background-color: white;
+
+  border: none;
+  border-radius: 5px;
+
+  display: flex;
+  align-items: center;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+  z-index: 99;
+
+  position: fixed;
+  top: -10rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  animation-name: fadedown;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadedown {
+  0% {
+    top: -10rem;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    top: 1rem;
+    opacity: 1;
+  }
+}
+@keyframes fadeupslow {
+  0% {
+    opacity: 1;
+    top: 1rem;
+  }
+  100% {
+    top: 0.5rem;
+    opacity: 0;
+  }
+}
+
+.alert-error {
+  background-color: crimson;
+  color: white;
+}
+
+.alert-success {
+  background-color: limegreen;
+  color: white;
+}
+
+:root {
+  --primary-color: #009eff;
+  --primary-color-hover: hsla(203, 100%, 50%, 0.7);
 }

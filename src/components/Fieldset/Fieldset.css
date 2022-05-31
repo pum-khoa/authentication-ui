@@ -1,0 +1,13 @@
+.fieldset-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.fieldset-label {
+  width: fit-content;
+  color: #666;
+  font-weight: 600;
+}

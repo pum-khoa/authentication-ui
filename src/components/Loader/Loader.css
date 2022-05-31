@@ -1,0 +1,26 @@
+.loader-layer {
+  width: 100vw;
+  height: 100vh;
+
+  z-index: 100;
+
+  background-color: rgba(255, 255, 255, 0.5);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  z-index: 101;
+  background-image: url(../../assets/images/loader.gif);
+
+  width: 193px;
+  height: 192px;
+  background-repeat: no-repeat;
+  transform: scale(0.4);
+}
