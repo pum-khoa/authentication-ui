@@ -87,7 +87,7 @@ const SignIn = () => {
           block={true}
           className="button-submit-sign-in"
         >
-          Become a member
+          Submit
         </Button>
       </form>
       <div className="form-footer-wrapper">
