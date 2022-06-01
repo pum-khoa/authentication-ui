@@ -28,11 +28,9 @@ const SignUp = () => {
   return (
     <div className="sign-up-ctn">
       <div className="form-title-ctn">
-        <section>
-          <h1>
-            Sign up<span className="dot-icon">.</span>
-          </h1>
-        </section>
+        <h1>
+          Sign up<span className="dot-icon">.</span>
+        </h1>
         <p>
           Become a member - you'll enjoy exclusice deals, offers, invites and
           rewards
