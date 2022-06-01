@@ -152,14 +152,18 @@ const SignUp = () => {
             }),
           }}
         />
-        <Button
-          htmlType="submit"
-          type="primary"
-          block={true}
-          className="button-submit-sign-up"
-        >
-          Become a member
-        </Button>
+        <div className="controller-sign-up">
+          <Button
+            htmlType="reset"
+            onClick={() => reset()}
+            className="controller-btn"
+          >
+            Reset
+          </Button>
+          <Button htmlType="submit" type="primary" className="controller-btn">
+            Become a member
+          </Button>
+        </div>
       </form>
 
       <div className="form-footer-wrapper">
