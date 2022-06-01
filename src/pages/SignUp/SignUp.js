@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import Fieldset from '../../components/Fieldset/Fieldset';
 import { useGlobalData } from '../../components/GlobalDataProvider/GlobalDataProvider';
@@ -87,7 +88,11 @@ const SignUp = () => {
           register={{
             ...register('email', {
               required: { value: true, message: 'Email is required' },
-              pattern: { value: /^\S+@\S+$/i, message: 'Email is invalid' },
+              pattern: {
+                value:
+                  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                message: 'Email is invalid',
+              },
             }),
           }}
         />
@@ -160,9 +165,9 @@ const SignUp = () => {
 
       <div className="form-footer-wrapper">
         <p>Already have an account?</p>
-        <p className="sign-in" href="#">
+        <Link className="sign-in" to="/sign-in">
           Sign in
-        </p>
+        </Link>
       </div>
     </div>
   );
