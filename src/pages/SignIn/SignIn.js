@@ -18,7 +18,7 @@ const SignIn = () => {
   const ContextData = useGlobalData();
 
   const onSubmit = (data) => {
-    ContextData.signUp(JSON.stringify(data));
+    ContextData.signIn(JSON.stringify(data));
     reset();
   };
 

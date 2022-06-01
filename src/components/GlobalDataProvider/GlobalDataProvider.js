@@ -16,10 +16,19 @@ function GlobalDataProvider(props) {
       message('success', 'Sign up success, you can sign in now!', 2000);
     }
   };
+  const signIn = async (params) => {
+    setLoading(true);
+    const signUpData = await userAPI.login(params);
+    if (signUpData) {
+      setLoading(false);
+      message('success', "Let's dig in", 1000);
+    }
+  };
 
   const providerValues = {
     isLoading,
     signUp,
+    signIn,
   };
 
   return (
