@@ -13,7 +13,6 @@ function GlobalDataProvider(props) {
     const signUpData = await userAPI.register(params);
     if (signUpData) {
       setLoading(false);
-      document.getElementById('form-sign-up').reset();
       message('success', 'Sign up success, you can sign in now!', 2000);
     }
   };

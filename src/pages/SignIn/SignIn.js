@@ -11,6 +11,7 @@ const SignIn = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -18,6 +19,7 @@ const SignIn = () => {
 
   const onSubmit = (data) => {
     ContextData.signUp(JSON.stringify(data));
+    reset();
   };
 
   return (
@@ -32,7 +34,7 @@ const SignIn = () => {
       <form
         className="form-sign-up"
         id="form-sign-up"
-        onSubmit={(e) => e.preventDefault()}
+        onSubmit={handleSubmit(onSubmit)}
       >
         <Fieldset
           id="email"
@@ -83,7 +85,6 @@ const SignIn = () => {
           htmlType="submit"
           type="primary"
           block={true}
-          onClick={handleSubmit(onSubmit)}
           className="button-submit-sign-in"
         >
           Become a member
