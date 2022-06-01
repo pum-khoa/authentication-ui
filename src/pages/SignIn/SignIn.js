@@ -5,6 +5,7 @@ import Button from '../../components/Button/Button';
 import Checkbox from '../../components/Checkbox/Checkbox';
 import Fieldset from '../../components/Fieldset/Fieldset';
 import { useGlobalData } from '../../components/GlobalDataProvider/GlobalDataProvider';
+import Tooltip from '../../components/Tooltip/Tooltip';
 import './SignIn.css';
 
 const SignIn = () => {
@@ -55,24 +56,26 @@ const SignIn = () => {
             }),
           }}
         />
-        <Fieldset
-          id="password"
-          type="password"
-          labelName="Password"
-          placeHold="******"
-          require={true}
-          errorMess={errors.password && errors.password.message}
-          register={{
-            ...register('password', {
-              required: { value: true, message: 'Password is required' },
-              minLength: {
-                value: 6,
-                message: 'Password must have at least 6 characters',
-              },
-              maxLength: 50,
-            }),
-          }}
-        />
+        <Tooltip label="If you forgot your account. Please sign up another one 😀!">
+          <Fieldset
+            id="password"
+            type="password"
+            labelName="Password"
+            placeHold="******"
+            require={true}
+            errorMess={errors.password && errors.password.message}
+            register={{
+              ...register('password', {
+                required: { value: true, message: 'Password is required' },
+                minLength: {
+                  value: 6,
+                  message: 'Password must have at least 6 characters',
+                },
+                maxLength: 50,
+              }),
+            }}
+          />
+        </Tooltip>
         <Checkbox
           name="remember"
           value="remember"

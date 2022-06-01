@@ -1,0 +1,39 @@
+.tooltip-wrapper {
+  width: auto;
+  height: auto;
+  position: relative;
+}
+
+.tooltip-wrapper:focus-within::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+
+  position: absolute;
+
+  left: calc(100% + 1rem);
+  top: 50%;
+  transform: translate(-20%, -50%) rotate(45deg);
+  background-color: #777;
+
+  border: none;
+}
+
+.tooltip-wrapper:focus-within::after {
+  width: fit-content;
+  max-width: 350px;
+  content: attr(label-content);
+  padding: 0.5rem 1rem;
+
+  position: absolute;
+  transform: translateY(-50%);
+
+  left: calc(100% + 1rem);
+  top: 50%;
+  background-color: #777;
+
+  border-radius: 3px;
+  border: none;
+  z-index: 2;
+  color: white;
+}
