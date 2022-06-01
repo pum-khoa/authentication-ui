@@ -1,5 +1,6 @@
-export const message = (type, message, duration = 2000) => {
+export const message = (type, message, duration = 1000) => {
   duration += 2000;
+
   const messageElement = document.createElement('div');
   messageElement.innerHTML = `<p style="margin: 0">${message}</p>`;
   document.body.appendChild(messageElement);
