@@ -3,7 +3,7 @@ Netlify: [https://authencation-ui.netlify.app/](https://authentication-ui.netlif
 
 ### Sign up
 
-![image](https://user-images.githubusercontent.com/104960618/171357017-e31f4117-0709-414c-afc5-c1c5a66e80fa.png)
+![image](https://user-images.githubusercontent.com/104960618/171363315-5b1b04b3-2e5c-434a-a5b2-fc0bb5417944.png)
 
 ### Sign In
 
