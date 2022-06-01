@@ -56,7 +56,7 @@ const SignIn = () => {
             }),
           }}
         />
-        <Tooltip label="If you forgot your account. Please sign up another one 😀!">
+        <Tooltip label="If you forgot your account. Please contact to Admin 😀!">
           <Fieldset
             id="password"
             type="password"

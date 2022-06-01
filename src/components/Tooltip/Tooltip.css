@@ -4,7 +4,8 @@
   position: relative;
 }
 
-.tooltip-wrapper:focus-within::before {
+.tooltip-wrapper:focus-within::before,
+.tooltip-wrapper:hover::before {
   content: '';
   width: 20px;
   height: 20px;
@@ -14,14 +15,15 @@
   left: calc(100% + 1rem);
   top: 50%;
   transform: translate(-20%, -50%) rotate(45deg);
-  background-color: #777;
+  background-color: var(--primary-color);
 
   border: none;
 }
 
-.tooltip-wrapper:focus-within::after {
+.tooltip-wrapper:focus-within::after,
+.tooltip-wrapper:hover::after {
   width: fit-content;
-  max-width: 350px;
+  max-width: 300px;
   content: attr(label-content);
   padding: 0.5rem 1rem;
 
@@ -30,7 +32,7 @@
 
   left: calc(100% + 1rem);
   top: 50%;
-  background-color: #777;
+  background-color: var(--primary-color);
 
   border-radius: 3px;
   border: none;
