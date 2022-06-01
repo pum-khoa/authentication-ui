@@ -1,5 +1,5 @@
 ## Demo
-Netlify: https://authencation-ui.netlify.app/
+Netlify: [https://authencation-ui.netlify.app/](https://authentication-ui.netlify.app/)
 
 ### Sign up
 
