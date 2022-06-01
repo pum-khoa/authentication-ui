@@ -6,23 +6,25 @@ const Checkbox = (props) => {
   const [isChecked, setChecked] = useState(false);
 
   useEffect(() => {
-    if (isChecked) document.getElementById(name).className += 'checked';
-    else document.getElementById(name).className = 'checkbox-input';
-  }, [name, isChecked]);
+    if (isChecked)
+      document.getElementById(name).className = 'checkbox-input checked';
+    else {
+      document.getElementById(name).className = 'checkbox-input un-checked';
+    }
+  }, [isChecked, name]);
 
   return (
-    <div className="checkbox-wrapper" onClick={() => setChecked(!isChecked)}>
-      <div className="checkbox-input-wrapper">
-        <input
-          className="checkbox-input"
-          type="checkbox"
-          id={name}
-          name={name}
-          value={value}
-          {...register}
-          {...prop}
-        />
-      </div>
+    <div className="checkbox-wrapper">
+      <input
+        onClick={() => setChecked(!isChecked)}
+        className="checkbox-input"
+        type="checkbox"
+        id={name}
+        name={name}
+        value={isChecked}
+        {...register}
+        {...prop}
+      />
 
       <label htmlFor={name} className="checkbox-label">
         {children}
