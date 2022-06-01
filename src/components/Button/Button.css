@@ -7,19 +7,26 @@
   cursor: pointer;
   transition: ease 300ms;
   font-size: large;
-  border: 1px solid #ccc;
   background-color: white;
+  border: none;
+  border: 1px solid #ddd;
+  box-shadow: rgb(100, 100, 100, 0.4) 0px 25px 20px -20px;
 }
 
 .button:hover {
-  opacity: 0.7;
   border: 1px solid var(--primary-color);
+  color: var(--primary-color);
 }
 
 .button-primary {
   background-color: var(--primary-color);
   color: white;
   box-shadow: rgb(0, 158, 255, 0.8) 0px 25px 20px -20px;
+}
+
+.button-primary:hover {
+  opacity: 0.7;
+  color: white;
 }
 
 .button-block-true {
