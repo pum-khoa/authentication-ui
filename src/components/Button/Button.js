@@ -1,41 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Button.css';
 const Button = (props) => {
   const { htmlType, type, block, size, className, children, ...prop } = props;
-
-  const checkPropToStyle = () => {
-    const style = {};
-    if (type === 'primary') {
-      style['backgroundColor'] = 'var(--primary-color)';
-      style['color'] = 'white';
-      style['boxShadow'] = 'rgb(0, 158, 255, 0.8) 0px 25px 20px -20px';
-    } else style['backgroundColor'] = 'white';
-    if (block) style['width'] = '100%';
-    else style['width'] = 'fit-content';
-
-    switch (size) {
-      case 'small':
-        style['height'] = '40px';
-        break;
-
-      case 'large':
-        style['height'] = '60px';
-        break;
-
-      default:
-        style['height'] = '50px';
-        break;
-    }
-
-    return style;
-  };
-
   return (
     <button
-      className={`Button ${className}`}
+      className={`button ${className} button-${size} button-block-${block} button-${type}`}
+      id="button"
       type={htmlType}
       {...prop}
-      style={checkPropToStyle()}
     >
       {children}
     </button>
