@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './Button.css';
 const Button = (props) => {
   const { htmlType, type, block, size, className, children, ...prop } = props;
