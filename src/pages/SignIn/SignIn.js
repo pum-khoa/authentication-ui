@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from '../../components/Button/Button';
@@ -18,13 +18,18 @@ const SignIn = () => {
   } = useForm();
 
   const ContextData = useGlobalData();
-
   const navigate = useNavigate();
+  const role = ContextData.selectRole();
+
+  useEffect(() => {
+    if (role) navigate('/');
+  });
 
   const onSubmit = async (data) => {
     const responseData = await ContextData.signIn(data);
     if (responseData.status === 200) {
-      localStorage.setItem('token', responseData.token);
+      if (data.remember) localStorage.setItem('token', responseData.token);
+      else sessionStorage.setItem('token', responseData.token);
       ContextData.handleUser({
         email: responseData.email,
         role: responseData.role,

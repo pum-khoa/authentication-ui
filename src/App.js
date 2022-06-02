@@ -1,5 +1,11 @@
 import './general.css';
-import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import {
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
 import { useGlobalData } from './components/GlobalDataProvider/GlobalDataProvider';
 import Loader from './components/Loader/Loader';
 import SignUp from './pages/SignUp/SignUp';
@@ -22,7 +28,9 @@ function App() {
         const resData = await userAPI.fetchUserData(token);
         ContextData.handleUser(resData);
       };
-      getUserData(localStorage.getItem('token'));
+      getUserData(
+        localStorage.getItem('token') || sessionStorage.getItem('token')
+      );
     }
   }, [location.pathname]);
 
@@ -31,8 +39,10 @@ function App() {
       <Loader isLoading={ContextData.isLoading} />
       <Routes>
         <Route path="/" element={<Navigate to="/dashboard" />} />
-        <Route path="sign-in" element={<SignIn />} />
+
         <Route path="sign-up" element={<SignUp />} />
+        <Route path="sign-in" element={<SignIn />} />
+
         <Route element={<PrivateRoute />}>
           <Route path="dashboard" element={<Dashboard />} />
           {role === 'admin' && <Route path="setting" element={<Setting />} />}

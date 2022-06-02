@@ -1,6 +1,6 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import Fieldset from '../../components/Fieldset/Fieldset';
 import { useGlobalData } from '../../components/GlobalDataProvider/GlobalDataProvider';
@@ -15,10 +15,14 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
 
+  const ContextData = useGlobalData();
+  const role = ContextData.selectRole();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (role) navigate('/');
+  });
   const password = useRef({});
   password.current = watch('password', '');
-
-  const ContextData = useGlobalData();
 
   const onSubmit = (data) => {
     ContextData.signUp(JSON.stringify(data));

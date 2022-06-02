@@ -21,6 +21,7 @@ const Navbar = () => {
         className="nav-link nav-logout"
         onClick={() => {
           localStorage.removeItem('token');
+          sessionStorage.removeItem('token');
           ContextData.clearUser();
         }}
       >

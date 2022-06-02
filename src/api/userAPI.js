@@ -42,7 +42,6 @@ export const userAPI = {
       });
   },
   fetchUserData: (token) => {
-    console.log(token);
     if (token === 'chungtalaluquyotanrungsauotannuicao')
       return new Promise((resolve) => {
         setTimeout(() => {
@@ -50,7 +49,7 @@ export const userAPI = {
             email: 'admin@nfq.asia',
             role: 'admin',
           });
-        }, 1500);
+        }, 0);
       });
     else if (token === 'chungtalaluquyotanrungsauotannuicaomember')
       return new Promise((resolve) => {
@@ -59,13 +58,13 @@ export const userAPI = {
             email: 'dangkhoa.duong@nfq.asia',
             role: 'member',
           });
-        }, 1500);
+        }, 0);
       });
     else {
       return new Promise((resolve) => {
         setTimeout(() => {
           resolve({ status: 401 });
-        }, 500);
+        }, 0);
       });
     }
   },
