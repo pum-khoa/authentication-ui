@@ -30,8 +30,8 @@ const SignIn = () => {
         role: responseData.role,
       });
       ContextData.handleLoading(false);
-      message('success', "Let's dig in", 1000);
       navigate('/dashboard');
+      message('success', "Let's dig in", 1000);
     } else {
       ContextData.handleLoading(false);
       message('error', 'Your email or password incorrect!', 1000);

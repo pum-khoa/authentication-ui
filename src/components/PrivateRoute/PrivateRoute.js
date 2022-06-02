@@ -4,7 +4,7 @@ import Navbar from '../Navbar/Navbar'
 
 const PrivateRoute = () => {
   const token = localStorage.getItem('token');
-  if (token !== 'chungtalaluquyotanrungsauotannuicao') {
+  if (token !== 'chungtalaluquyotanrungsauotannuicao' && token !== 'chungtalaluquyotanrungsauotannuicaomember') {
     return <Navigate to={'/sign-in'} replace />;
   }
 

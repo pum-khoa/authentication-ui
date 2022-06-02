@@ -1,13 +1,12 @@
 .nav-wrapper {
-  width: 100%;
-  height: 5%;
-  padding: 0 100px;
-
+  width: 1400px;
+  height: 10%;
   display: flex;
   align-items: center;
   gap: 30px;
   background-color: white;
   box-sizing: border-box;
+  margin: 0 auto;
 }
 
 .nav-link {
@@ -20,5 +19,5 @@
 }
 
 .nav-logout:hover {
-    color: crimson;
+  color: crimson;
 }

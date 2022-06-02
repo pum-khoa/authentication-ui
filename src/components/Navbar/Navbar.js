@@ -6,7 +6,6 @@ import './Navbar.css';
 const Navbar = () => {
   const ContextData = useGlobalData();
   const role = ContextData.selectRole();
-  console.log(role)
   return (
     <nav className="nav-wrapper">
       <Link to={'/dashboard'} className="nav-link">
