@@ -7,6 +7,19 @@ const GlobalDataContext = React.createContext(initialState);
 
 function GlobalDataProvider(props) {
   const [isLoading, setLoading] = useState(false);
+  const [user, setUser] = useState();
+
+  const handleLoading = (value) => {
+    setLoading(value);
+  };
+
+  const handleUser = (value) => {
+    setUser(value);
+  };
+
+  const selectRole = () => {
+    if (user) return user.role;
+  };
 
   const signUp = async (params) => {
     setLoading(true);
@@ -19,14 +32,15 @@ function GlobalDataProvider(props) {
   const signIn = async (params) => {
     setLoading(true);
     const signUpData = await userAPI.login(params);
-    if (signUpData) {
-      setLoading(false);
-      message('success', "Let's dig in", 1000);
-    }
+    return signUpData;
   };
 
   const providerValues = {
     isLoading,
+    user,
+    handleLoading,
+    handleUser,
+    selectRole,
     signUp,
     signIn,
   };

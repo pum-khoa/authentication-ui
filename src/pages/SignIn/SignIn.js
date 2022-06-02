@@ -1,11 +1,12 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import Checkbox from '../../components/Checkbox/Checkbox';
 import Fieldset from '../../components/Fieldset/Fieldset';
 import { useGlobalData } from '../../components/GlobalDataProvider/GlobalDataProvider';
 import Tooltip from '../../components/Tooltip/Tooltip';
+import { message } from '../../utils/message';
 import './SignIn.css';
 
 const SignIn = () => {
@@ -18,8 +19,23 @@ const SignIn = () => {
 
   const ContextData = useGlobalData();
 
-  const onSubmit = (data) => {
-    ContextData.signIn(JSON.stringify(data));
+  const navigate = useNavigate();
+
+  const onSubmit = async (data) => {
+    const responseData = await ContextData.signIn(data);
+    if (responseData.status === 200) {
+      localStorage.setItem('token', responseData.token);
+      ContextData.handleUser({
+        email: responseData.email,
+        role: responseData.role,
+      });
+      ContextData.handleLoading(false);
+      message('success', "Let's dig in", 1000);
+      navigate('/dashboard');
+    } else {
+      ContextData.handleLoading(false);
+      message('error', 'Your email or password incorrect!', 1000);
+    }
     reset();
   };
 

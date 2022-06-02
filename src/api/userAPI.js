@@ -1,18 +1,44 @@
 export const userAPI = {
   register: (params) => {
-    console.log(params);
+    console.log(`Body: ${params}`);
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve({ SIGN_UP_STATUS: 200 });
+        resolve({ status: 200 });
       }, 1000);
     });
   },
   login: (params) => {
-    console.log(params);
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve({ SIGN_IN_STATUS: 200 });
-      }, 1000);
-    });
+    console.log(`Body: ${JSON.stringify(params)}`);
+    if (params.email === 'admin@nfq.asia' && params.password === 'admin1')
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve({
+            status: 200,
+            token: 'chungtalaluquyotanrungsauotannuicao',
+            email: params.email,
+            role: 'admin',
+          });
+        }, 1500);
+      });
+    else if (
+      params.email === 'dangkhoa.duong@nfq.asia' &&
+      params.password === '123123'
+    )
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve({
+            status: 200,
+            token: 'chungtalaluquyotanrungsauotannuicao',
+            email: params.email,
+            role: 'member',
+          });
+        }, 1500);
+      });
+    else
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve({ status: 401 });
+        }, 1500);
+      });
   },
 };
