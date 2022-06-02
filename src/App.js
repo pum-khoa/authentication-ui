@@ -7,6 +7,7 @@ import SignIn from './pages/SignIn/SignIn';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Setting from './pages/Setting/Setting';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import NotFound from './pages/NotFound/NotFound';
 
 function App() {
   const ContextData = useGlobalData();
@@ -23,7 +24,7 @@ function App() {
             <Route path="dashboard" element={<Dashboard />} />
             {role === 'admin' && <Route path="setting" element={<Setting />} />}
           </Route>
-          <Route path="*" element={<h1>404</h1>} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </BrowserRouter>

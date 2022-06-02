@@ -8,5 +8,13 @@
 }
 
 .dashboard-title {
-  font-size: 128px;
+  background-image: url(../../assets/images/background.jpg);
+  background-repeat: repeat;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 200px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 900;
+  line-height: 900px;
 }

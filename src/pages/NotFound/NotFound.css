@@ -1,4 +1,4 @@
-.setting-wrapper {
+.not-found-wrapper {
   width: 100%;
   height: 95%;
   background-color: white;
@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-.setting-title {
+.not-found-title {
   background-image: url(../../assets/images/background.jpg);
   background-repeat: repeat;
   background-clip: text;
