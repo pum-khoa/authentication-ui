@@ -9,7 +9,7 @@ export const userAPI = {
   },
   login: (params) => {
     console.log(`Body: ${JSON.stringify(params)}`);
-    if (params.email === 'admin@nfq.asia' && params.password === 'admin1')
+    if (params.email === 'admin@nfq.asia' && params.password === 'P@sswordis1')
       return new Promise((resolve) => {
         setTimeout(() => {
           resolve({
@@ -22,7 +22,7 @@ export const userAPI = {
       });
     else if (
       params.email === 'dangkhoa.duong@nfq.asia' &&
-      params.password === '123123'
+      params.password === 'P@sswordis1'
     )
       return new Promise((resolve) => {
         setTimeout(() => {

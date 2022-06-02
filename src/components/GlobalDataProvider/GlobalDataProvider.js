@@ -17,6 +17,10 @@ function GlobalDataProvider(props) {
     setUser(value);
   };
 
+  const clearUser = () => {
+    setUser(null);
+  };
+
   const selectRole = () => {
     if (user) return user.role;
   };
@@ -40,6 +44,7 @@ function GlobalDataProvider(props) {
     user,
     handleLoading,
     handleUser,
+    clearUser,
     selectRole,
     signUp,
     signIn,
