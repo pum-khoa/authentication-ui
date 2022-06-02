@@ -2,13 +2,11 @@ import './general.css';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { useGlobalData } from './components/GlobalDataProvider/GlobalDataProvider';
 import Loader from './components/Loader/Loader';
-import Wave from './components/Wave/Wave';
 import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn/SignIn';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Setting from './pages/Setting/Setting';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import Navbar from './components/Navbar/Navbar';
 
 function App() {
   const ContextData = useGlobalData();
@@ -17,7 +15,6 @@ function App() {
     <BrowserRouter>
       <div className="app">
         <Loader isLoading={ContextData.isLoading} />
-        <Navbar />
         <Routes>
           <Route path="/" element={<Navigate to="/dashboard" />} />
           <Route path="sign-in" element={<SignIn />} />
@@ -28,7 +25,6 @@ function App() {
           </Route>
           <Route path="*" element={<h1>404</h1>} />
         </Routes>
-        <Wave />
       </div>
     </BrowserRouter>
   );
