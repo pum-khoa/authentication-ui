@@ -11,7 +11,11 @@ const Navbar = () => {
       <Link to={'/setting'} className="nav-link">
         Setting
       </Link>
-      <Link to={''} className="nav-link nav-logout">
+      <Link
+        to={'/sign-in'}
+        className="nav-link nav-logout"
+        onClick={() => localStorage.removeItem('token')}
+      >
         Logout
       </Link>
     </nav>
