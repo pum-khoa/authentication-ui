@@ -1,5 +1,13 @@
 ## Demo
 Netlify: [https://authencation-ui.netlify.app/](https://authentication-ui.netlify.app/)
+### Account to test sign in
+
+#### Admin
+Email: admin@nfq.asia
+Password: P@sswordis1
+#### User
+Email: dangkhoa.duong@nfq.asia
+Password: P@sswordis1
 
 ### Sign up
 
