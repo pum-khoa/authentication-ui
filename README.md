@@ -7,7 +7,7 @@ Netlify: [https://authencation-ui.netlify.app/](https://authentication-ui.netlif
 
 ### Sign In
 
-![image](https://user-images.githubusercontent.com/104960618/171357120-b80ca4c3-812e-4b64-b2f8-9a7023ab3945.png)
+![image](https://user-images.githubusercontent.com/104960618/171379415-de0d8bfc-bc11-476a-9601-6429da150b3f.png)
 
 ## Available Scripts
 
