@@ -8,13 +8,12 @@
 }
 
 .not-found-title {
-  background-image: url(../../assets/images/background.jpg);
-  background-repeat: repeat;
+  background: url(../../assets/images/background.jpg) -30px -200px no-repeat;
   background-clip: text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 200px;
+  font-size: 300px;
   text-align: center;
   text-transform: uppercase;
   font-weight: 900;
-  line-height: 900px;
 }
