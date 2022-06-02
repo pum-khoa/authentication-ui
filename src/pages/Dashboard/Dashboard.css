@@ -10,6 +10,7 @@
 }
 
 .dashboard-title {
+  transform: translateY(-10%);
   background-image: url(../../assets/images/background.jpg);
   background-repeat: repeat;
   background-clip: text;
