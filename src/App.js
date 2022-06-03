@@ -1,11 +1,5 @@
 import './general.css';
-import {
-  Navigate,
-  Route,
-  Routes,
-  useLocation,
-  useNavigate,
-} from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { useGlobalData } from './components/GlobalDataProvider/GlobalDataProvider';
 import Loader from './components/Loader/Loader';
 import SignUp from './pages/SignUp/SignUp';
@@ -16,6 +10,8 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import NotFound from './pages/NotFound/NotFound';
 import { useEffect } from 'react';
 import { userAPI } from './api/userAPI';
+import Users from './pages/Users/Users';
+import 'antd/dist/antd.css';
 
 function App() {
   const ContextData = useGlobalData();
@@ -32,8 +28,7 @@ function App() {
         localStorage.getItem('token') || sessionStorage.getItem('token')
       );
     }
-  }, [location.pathname]);
-
+  }, [ContextData, location.pathname, role]);
   return (
     <div className="app">
       <Loader isLoading={ContextData.isLoading} />
@@ -45,7 +40,12 @@ function App() {
 
         <Route element={<PrivateRoute />}>
           <Route path="dashboard" element={<Dashboard />} />
-          {role === 'admin' && <Route path="setting" element={<Setting />} />}
+          {role === 'admin' && (
+            <>
+              <Route path="setting" element={<Setting />} />
+              <Route path="users" element={<Users />} />
+            </>
+          )}
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

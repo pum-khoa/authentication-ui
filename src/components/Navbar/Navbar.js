@@ -12,9 +12,14 @@ const Navbar = () => {
         Dashboard
       </Link>
       {role === 'admin' && (
-        <Link to={'/setting'} className="nav-link">
-          Setting
-        </Link>
+        <>
+          <Link to={'/setting'} className="nav-link">
+            Setting
+          </Link>
+          <Link to={'/users'} className="nav-link">
+            Users
+          </Link>
+        </>
       )}
       <Link
         to={'/sign-in'}
