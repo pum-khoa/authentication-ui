@@ -21,6 +21,19 @@ Password: `P@sswordis1`
 
 ![image](https://user-images.githubusercontent.com/104960618/171379415-de0d8bfc-bc11-476a-9601-6429da150b3f.png)
 
+### Dashboard
+
+![image](https://user-images.githubusercontent.com/104960618/171609846-6ff6637d-a8a4-42aa-8510-69c262deeaad.png)
+
+### Setting
+
+![image](https://user-images.githubusercontent.com/104960618/171609867-eeb9b383-8e4e-438b-ae04-2c5857c3a3ce.png)
+
+### 404
+
+![image](https://user-images.githubusercontent.com/104960618/171609899-98a0f797-960a-496a-9da7-02222c78d417.png)
+
+
 ## Available Scripts
 
 In the project directory, you can run:
