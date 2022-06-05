@@ -5,6 +5,8 @@ import "./Users.css";
 import moment from "moment";
 import FormModal from "../../components/FormModal/FormModal";
 import { message } from "../../utils/message";
+import _ from "lodash";
+import { useGlobalData } from "../../components/GlobalDataProvider/GlobalDataProvider";
 
 const Users = () => {
   const [users, setUsers] = useState();
@@ -13,13 +15,16 @@ const Users = () => {
   const [userToEdit, setUserToEdit] = useState();
   const [formAddUser] = Form.useForm();
   const [formEditUser] = Form.useForm();
+  const ContextData = useGlobalData();
 
   // READ user
   useEffect(() => {
     const readUsers = async () => {
+      ContextData.handleLoading(true);
       const responseData = await usersAPI.read(
         "https://629992b36f8c03a97844fe0d.mockapi.io/users"
       );
+      ContextData.handleLoading(false);
       setUsers(responseData);
     };
     readUsers();
@@ -66,29 +71,35 @@ const Users = () => {
     );
     const temp = [...users];
     temp.splice(indexUserToUpdate, 1, newUser);
-    console.log(temp);
     setUsers(temp);
   };
   const handleEditUser = () => {
     formEditUser
       .validateFields()
       .then(async (values) => {
-        formEditUser.resetFields();
-        const requestData = {
-          ...values,
-          id: userToEdit.id,
-          createdAt: userToEdit.createdAt,
-        };
-        const responseData = await usersAPI.update(
-          "https://629992b36f8c03a97844fe0d.mockapi.io/users",
-          requestData
-        );
-        if (responseData.status === 200) {
-          setShowModalEdit(false);
-          handleEditUserInState(requestData);
-          message("success", "Edit user success!");
+        if (
+          values.name !== userToEdit.name ||
+          values.title !== userToEdit.title
+        ) {
+          formEditUser.resetFields();
+          const requestData = {
+            ...values,
+            id: userToEdit.id,
+            createdAt: userToEdit.createdAt,
+          };
+          const responseData = await usersAPI.update(
+            "https://629992b36f8c03a97844fe0d.mockapi.io/users",
+            requestData
+          );
+          if (responseData.status === 200) {
+            setShowModalEdit(false);
+            handleEditUserInState(requestData);
+            message("success", "Edit user success!");
+          } else {
+            message("error", "Edit user fail!");
+          }
         } else {
-          message("error", "Edit user fail!");
+          message("error", "Nothing to update!");
         }
       })
       .catch((info) => {

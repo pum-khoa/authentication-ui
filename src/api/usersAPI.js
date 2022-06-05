@@ -1,4 +1,5 @@
-import useFetch from '../utils/useFetch';
+import { useGlobalData } from "../components/GlobalDataProvider/GlobalDataProvider";
+import useFetch from "../utils/useFetch";
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
 const fetch = useFetch();
