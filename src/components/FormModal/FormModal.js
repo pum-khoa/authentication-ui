@@ -1,5 +1,5 @@
-import { Form, Modal } from 'antd';
-import React, { useEffect, useState } from 'react';
+import { Form, Modal } from "antd";
+import React, { useEffect, useState } from "react";
 
 const FormModal = (props) => {
   const {
@@ -13,6 +13,15 @@ const FormModal = (props) => {
     children,
     ...prop
   } = props;
+
+  useEffect(() => {
+    if (defaultValue) {
+      form.setFieldsValue({
+        ...defaultValue,
+      });
+    }
+  }, [defaultValue, form]);
+
   return (
     <Modal
       title={modalTitle}

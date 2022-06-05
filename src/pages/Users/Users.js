@@ -1,10 +1,10 @@
-import { Button, Form, Input, Popconfirm, Space, Table, Tag } from 'antd';
-import React, { useEffect, useState } from 'react';
-import { usersAPI } from '../../api/usersAPI';
-import './Users.css';
-import moment from 'moment';
-import FormModal from '../../components/FormModal/FormModal';
-import { message } from '../../utils/message';
+import { Button, Form, Input, Popconfirm, Space, Table, Tag } from "antd";
+import React, { useEffect, useState } from "react";
+import { usersAPI } from "../../api/usersAPI";
+import "./Users.css";
+import moment from "moment";
+import FormModal from "../../components/FormModal/FormModal";
+import { message } from "../../utils/message";
 
 const Users = () => {
   const [users, setUsers] = useState();
@@ -18,7 +18,7 @@ const Users = () => {
   useEffect(() => {
     const readUsers = async () => {
       const responseData = await usersAPI.read(
-        'https://629992b36f8c03a97844fe0d.mockapi.io/users'
+        "https://629992b36f8c03a97844fe0d.mockapi.io/users"
       );
       setUsers(responseData);
     };
@@ -40,7 +40,7 @@ const Users = () => {
           createdAt: moment().format(),
         };
         const responseData = await usersAPI.create(
-          'https://629992b36f8c03a97844fe0d.mockapi.io/users',
+          "https://629992b36f8c03a97844fe0d.mockapi.io/users",
           requestData
         );
         if (responseData.status === 201) {
@@ -49,13 +49,13 @@ const Users = () => {
             ...requestData,
             id: users.length,
           });
-          message('success', 'Add new user success!');
+          message("success", "Add new user success!");
         } else {
-          message('error', 'Add new user fail!');
+          message("error", "Add new user fail!");
         }
       })
       .catch((info) => {
-        console.log('Validate Failed:', info);
+        console.log("Validate Failed:", info);
       });
   };
 
@@ -66,7 +66,7 @@ const Users = () => {
     );
     const temp = [...users];
     temp.splice(indexUserToUpdate, 1, newUser);
-    console.log(temp)
+    console.log(temp);
     setUsers(temp);
   };
   const handleEditUser = () => {
@@ -80,19 +80,19 @@ const Users = () => {
           createdAt: userToEdit.createdAt,
         };
         const responseData = await usersAPI.update(
-          'https://629992b36f8c03a97844fe0d.mockapi.io/users',
+          "https://629992b36f8c03a97844fe0d.mockapi.io/users",
           requestData
         );
         if (responseData.status === 200) {
           setShowModalEdit(false);
           handleEditUserInState(requestData);
-          message('success', 'Edit user success!');
+          message("success", "Edit user success!");
         } else {
-          message('error', 'Edit user fail!');
+          message("error", "Edit user fail!");
         }
       })
       .catch((info) => {
-        console.log('Validate Failed:', info);
+        console.log("Validate Failed:", info);
       });
   };
 
@@ -103,43 +103,43 @@ const Users = () => {
   };
   const handleDeleteUser = async (record) => {
     const responseData = await usersAPI.delete(
-      'https://629992b36f8c03a97844fe0d.mockapi.io/users',
+      "https://629992b36f8c03a97844fe0d.mockapi.io/users",
       record.id
     );
     console.log(responseData);
     if (responseData.status === 200) {
       setShowModalAdd(false);
       deleteUserInState(record.id);
-      message('success', 'Delete user success!');
+      message("success", "Delete user success!");
     } else {
-      message('error', 'Delete user fail!');
+      message("error", "Delete user fail!");
     }
   };
 
   // Table Config
   const columns = [
     {
-      title: 'Name',
-      dataIndex: 'name',
-      width: '30%',
+      title: "Name",
+      dataIndex: "name",
+      width: "30%",
     },
     {
-      title: 'Title',
-      dataIndex: 'title',
+      title: "Title",
+      dataIndex: "title",
       render: (_, record) => {
         return <Tag color="cyan">{record.title.toUpperCase()}</Tag>;
       },
-      width: '30%',
+      width: "30%",
     },
     {
-      title: 'Created At',
-      dataIndex: 'createdAt',
-      render: (_, record) => moment(record.createdAt).format('YYYY-MM-DD'),
-      width: '20%',
+      title: "Created At",
+      dataIndex: "createdAt",
+      render: (_, record) => moment(record.createdAt).format("YYYY-MM-DD"),
+      width: "20%",
     },
     {
-      title: 'Action',
-      key: 'action',
+      title: "Action",
+      key: "action",
       render: (_, record) => (
         <Space size="middle">
           <Button
@@ -166,7 +166,7 @@ const Users = () => {
           </Popconfirm>
         </Space>
       ),
-      width: '20%',
+      width: "20%",
     },
   ];
 
@@ -187,7 +187,7 @@ const Users = () => {
           rules={[
             {
               required: true,
-              message: 'Please input the name of user!',
+              message: "Please input the name of user!",
             },
           ]}
         >
@@ -199,7 +199,7 @@ const Users = () => {
           rules={[
             {
               required: true,
-              message: 'Please input the name of user!',
+              message: "Please input the name of user!",
             },
           ]}
         >
@@ -215,6 +215,7 @@ const Users = () => {
         handleOk={() => handleEditUser()}
         handleCancel={() => setShowModalEdit(false)}
         okText="Update"
+        defaultValue={userToEdit}
       >
         <Form.Item
           name="name"
@@ -222,7 +223,7 @@ const Users = () => {
           rules={[
             {
               required: true,
-              message: 'Please input the name of user!',
+              message: "Please input the name of user!",
             },
           ]}
         >
@@ -234,7 +235,7 @@ const Users = () => {
           rules={[
             {
               required: true,
-              message: 'Please input the name of user!',
+              message: "Please input the name of user!",
             },
           ]}
         >
